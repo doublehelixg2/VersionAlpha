@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>ICU Dashboard Stream</title>
+    <% include partials/head%>
+
+  </head>
+
+  <body class="nav-md">
+    <div class="container body">
+      <div class="main_container">
+
+        <!-- sidebar -->
+        <% include partials/sidebar%>
+        <!-- /sidebar -->
+
+        <!-- top navigation -->
+        <% include partials/topbar%>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+          <!-- top tiles -->
+          <div class="row tile_count">
+            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+              <span class="count_top"><i class="fa fa-user"></i> Temperature</span>
+              <div class="count">98F</div>
+              <span class="count_bottom"><i class="red"><i class="fa fa-sort-asc"></i>3% </i> From Yesterday</span>
+            </div>
+            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+              <span class="count_top"><i class="fa fa-clock-o"></i> Pulse</span>
+              <div class="count">180 BPM</div>
+              <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>2% </i> From Yesterday</span>
+            </div>
+            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+              <span class="count_top"><i class="fa fa-user"></i> Blood Pressure</span>
+              <div class="count green">120/80</div>
+              <span class="count_bottom"><i class="green"><i class="fa fa-sort-desc"></i>10% </i> From Yesterday</span>
+            </div>
+            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+              <span class="count_top"><i class="fa fa-user"></i> Breathing Rate</span>
+              <div class="count">17–23</div>
+              <span class="count_bottom"><i class="red"><i class="fa fa-sort-desc"></i>12% </i> From Yesterday</span>
+            </div>
+            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+              <span class="count_top"><i class="fa fa-user"></i> SpO2</span>
+              <div class="count green">95%</div>
+              <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>1% </i> From Yesterday</span>
+            </div>
+          </div>
+          <!-- /top tiles -->
+
+          <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <div class="dashboard_graph">
+
+                <div class="row x_title">
+                  <div class="col-md-6">
+                    <h3>Live Video Stream <small></small></h3>
+                  </div>
+                </div>
+
+                <div class="col-md-8 col-sm-8 col-xs-12">
+                <script src="../public/js/jw-player.js"></script>
+                <div id="myElement" frameborder="0" allowfullscreen></div>
+                <script type="text/JavaScript">
+                var playerInstance = jwplayer("myElement");
+                var c = getUrlVars()["c"];
+              
+                console.log(c);
+                playerInstance.setup({
+                  file: "http://localhost:8080/video/playlist/playlist.m3u8",
+                  autostart: true,
+                  mute: true, //optional, but recommended
+                  width: 1000,
+                  height:563
+                });
+              
+                function getUrlVars() {
+                  var vars = {};
+                  var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+                      vars[key] = value;
+                  });
+                  return vars;
+              }</script>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Tasks</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Settings 1</a>
+                          </li>
+                          <li><a href="#">Settings 2</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+
+                    <div class="">
+                      <ul class="to_do">
+                        <li>
+                          <p>
+                            <input type="checkbox" class="flat"> Initial Checkup</p>
+                        </li>
+                        <li>
+                          <p>
+                            <input type="checkbox" class="flat"> Monitor vitals</p>
+                        </li>
+                        <li>
+                          <p>
+                            <input type="checkbox" class="flat"> Give morning Medicine</p>
+                        </li>
+                        <li>
+                          <p>
+                            <input type="checkbox" class="flat"> Injection at 12pm</p>
+                        </li>
+                        <li>
+                          <p>
+                            <input type="checkbox" class="flat"> Replace IV Bags</p>
+                        </li>
+                        <li>
+                          <p>
+                            <input type="checkbox" class="flat"> Evening Medicine</p>
+                        </li>
+                        <li>
+                          <p>
+                            <input type="checkbox" class="flat"> ECG Checkup</p>
+                        </li>
+                        <li>
+                          <p>
+                            <input type="checkbox" class="flat"> Doctor Rounds</p>
+                        </li>
+                        <li>
+                          <p>
+                            <input type="checkbox" class="flat"> Injection</p>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+                <div class="clearfix"></div>
+              </div>
+            </div>
+
+          </div>
+          <br />
+
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <% include partials/footer%>
+        <!-- /footer content -->
+      </div>
+    </div>
+
+    <!-- Bottom Scripts-->
+    <% include partials/bottomScripts%>
+    <!-- /Bottom Scripts-->
+	
+  </body>
+</html>
