@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Admin Dashboard</title>
+    <% include partials/head%>
+
+  </head>
+
+  <body class="nav-md">
+    <div class="container body">
+      <div class="main_container">
+
+        <!-- sidebar -->
+        <% include partials/sidebar%>
+        <!-- /sidebar -->
+
+        <!-- top navigation -->
+        <% include partials/topbar%>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+          <div class="">
+            <div class="page-title">
+              <div class="title_left">
+                <h3>Cameras</h3>
+              </div>
+
+            </div>
+
+            <div class="clearfix"></div>
+
+            <div class="row">
+
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <table id="datatable-buttons" class="table table-striped table-bordered">
+                      <thead>
+                        <tr>
+                          <th>Camera ID</th>
+                          <th>Room Number</th>
+                          <th>Bed Number</th>
+                          <th>View Stream</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                    <% for(var i=0; i<cameras.length; i++) {%>
+                    <tr>
+                      <td><%= cameras[i].cameraID%></td>
+                      <td><%= cameras[i].bedNumber%></td>
+                      <td><%= cameras[i].roomNumber%></td>
+                      <!-- <td><%= cameras[i].patientID%></td> -->
+                      <td>
+                        <a href="" class="btn btn-sm btn-success btn-block" >
+                          <span class="icon text-white-50">
+                            <i class="fa fa-eye"></i>
+                          </span>
+                          <span class="text">View Stream</span>
+                        </a>
+                      </td>
+                    </tr>
+                    <%}%>
+                    </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <% include partials/footer%>
+        <!-- /footer content -->
+      </div>
+    </div>
+
+    <!-- Bottom Scripts-->
+    <% include partials/bottomScripts%>
+    <!-- /Bottom Scripts-->
+	
+  </body>
+</html>

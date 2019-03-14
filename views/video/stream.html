@@ -1,0 +1,37 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Test stream</title>
+</head>
+<body>
+	<!-- <script src="https://cdn.jwplayer.com/libraries/d2UffoZX.js"></script> -->
+	<script src="../public/js/jw-player.js"></script>
+	<div id="myElement" frameborder="0" allowfullscreen></div>
+	<script type="text/JavaScript">
+	var playerInstance = jwplayer("myElement");
+	var c = getUrlVars()["c"];
+
+	console.log(c);
+	playerInstance.setup({
+		//file: "http://localhost:8080/video/playlist/streamcam"+c+".m3u8",
+		file:"http://172.16.100.236:8080/video/playlist/playlist.m3u8",
+		width: "100%",
+		autostart: true,
+		mute: true //optional, but recommended
+	});
+
+	function getUrlVars() {
+    var vars = {};
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+        vars[key] = value;
+    });
+    return vars;
+}
+
+</script>
+<!-- file: "http://localhost:8000/live/st_low/index.mpd" -->
+
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Admin Dashboard</title>
+    <% include partials/head%>
+
+  </head>
+
+  <body class="nav-md">
+    <div class="container body">
+      <div class="main_container">
+
+        <!-- sidebar -->
+        <% include partials/sidebar%>
+        <!-- /sidebar -->
+
+        <!-- top navigation -->
+        <% include partials/topbar%>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+          <div class="">
+            <div class="page-title">
+              <div class="title_left">
+                <h3>Cameras</h3>
+              </div>
+
+            </div>
+
+            <div class="clearfix"></div>
+
+            <div class="row">
+
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+              <div class="x_title">
+                <h2>Form Design <small>different form elements</small></h2>
+                <ul class="nav navbar-right panel_toolbox">
+                  <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                  </li>
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                    <ul class="dropdown-menu" role="menu">
+                      <li><a href="#">Settings 1</a>
+                      </li>
+                      <li><a href="#">Settings 2</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li><a class="close-link"><i class="fa fa-close"></i></a>
+                  </li>
+                </ul>
+                <div class="clearfix"></div>
+              </div>
+              <div class="x_content">
+                <br />
+                <form id="demo-form2" method="post" action="newPatient" data-parsley-validate class="form-horizontal form-label-left">
+                <% if (Success == true) {%>
+                <div class="col-lg-8 mb-4">
+                    <div class="card bg-success text-white shadow">
+                        <div class="card-body">
+                        Success
+                        </div>
+                    </div>
+                </div>
+                <%}
+                else if(Success == false){ %>
+                <div class="col-lg-8 mb-4">
+                <div class="card bg-danger text-white shadow">
+                    <div class="card-body">
+                    Danger
+                    </div>
+                </div>
+                </div>
+                <% } else{}%>
+
+                  <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Name <span class="required">*</span>
+                    </label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                      <input type="text" id="name" required="required" class="form-control col-md-7 col-xs-12" name="name">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="email" class="control-label col-md-3 col-sm-3 col-xs-12">Email<span class="required">*</span>
+                    </label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                      <input id="email" class="form-control col-md-7 col-xs-12" type="email" name="email">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="phone" class="control-label col-md-3 col-sm-3 col-xs-12">Phone<span class="required">*</span>
+                    </label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                      <input id="phone" class="form-control col-md-7 col-xs-12" type="phone" name="phone">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Patient ID<span class="required">*</span>
+                    </label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                      <input id="patientID" maxlength="6" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text" name="patientID">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Age<span class="required">*</span>
+                    </label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                      <input id="age" class=" form-control col-md-7 col-xs-12" required="required" type="number" name="age">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Room Number<span class="required">*</span>
+                    </label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                      <input id="bed" class=" form-control col-md-7 col-xs-12" required="required" type="number" name="room">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Bed Number<span class="required">*</span>
+                    </label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                      <input id="age" class=" form-control col-md-7 col-xs-12" required="required" type="number" name="bed">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Primary Guardian Name<span class="required">*</span>
+                    </label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                      <input id="mainName" class=" form-control col-md-7 col-xs-12" required="required" type="text" name="mainName">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Primary Guardian Phone<span class="required">*</span>
+                    </label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                      <input id="mainPhone" class=" form-control col-md-7 col-xs-12" required="required" type="phone" name="mainPhone">
+                    </div>
+                  </div>
+                  <div id="placeholder-box"></div>
+                  <div class="form-group">
+                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                      <button id="addRelatives" class="btn btn-primary">Add Relatives</button>
+                    </div>
+                  </div>
+                  <div class="ln_solid"></div>
+                  <div class="form-group">
+                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                      <button class="btn btn-primary" type="button">Cancel</button>
+          <button class="btn btn-primary" type="reset">Reset</button>
+                      <button type="submit" class="btn btn-success">Submit</button>
+                    </div>
+                  </div>
+
+                </form>
+              </div>
+            </div>
+          </div>
+
+            </div>
+          </div>
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <% include partials/footer%>
+        <!-- /footer content -->
+      </div>
+    </div>
+    <script>
+      var addBtn = document.getElementById("addRelatives");
+      var box = document.getElementById("placeholder-box");
+      var count = 0;
+      addBtn.addEventListener("click", function(event) {
+          count++;
+          box.innerHTML += "<div class=\"form-group\">\r\n                    <label class=\"control-label col-md-3 col-sm-3 col-xs-12\">Relative "+count+" Name <span class=\"required\">*<\/span>\r\n                    <\/label>\r\n                    <div class=\"col-md-6 col-sm-6 col-xs-12\">\r\n                      <input id=\"\" class=\"form-control col-md-7 col-xs-12\" required=\"required\" type=\"text\" name=\"relatives["+count+"][name]\">\r\n                    <\/div>\r\n                  <\/div>\r\n                  <div class=\"form-group\">\r\n                    <label class=\"control-label col-md-3 col-sm-3 col-xs-12\">Relative "+count+" Phone<span class=\"required\">*<\/span>\r\n                    <\/label>\r\n                    <div class=\"col-md-6 col-sm-6 col-xs-12\">\r\n                      <input id=\"\" class=\"form-control col-md-7 col-xs-12\" required=\"required\" type=\"phone\" name=\"relatives["+count+"][phone]\">\r\n                    <\/div>\r\n                  <\/div>";
+      });
+    </script>
+    <!-- Bottom Scripts-->
+    <% include partials/bottomScripts%>
+    <!-- /Bottom Scripts-->
+
+  </body>
+</html>
