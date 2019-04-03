@@ -1,8 +1,8 @@
 # VersionAlpha
 Development Version for the video streaming application
 
-Handlers:
--> Kushal 
--> Shreyas
--> Prasanna
--> Prajwal
+Handlers: <br/>
+-> Kushal <br/>
+-> Shreyas <br/>
+-> Prasanna <br/>
+-> Prajwal <br/>
